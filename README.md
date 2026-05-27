@@ -56,5 +56,53 @@ Puedes personalizar el comportamiento editando las variables al inicio de `monit
 | `GRACE_PERIOD_SECONDS` | Segundos de silencio tras detectar una alerta. | `15` |
 | `REQUIRE_TOPMOST` | Si es `True`, solo alerta si la ventana está "siempre al frente". | `True` |
 
+## 🤝 Cómo Contribuir
+
+¡Las contribuciones son bienvenidas! Este proyecto sigue el flujo estándar de **Fork & Pull Request**. La rama `main` está protegida: no se aceptan pushes directos y todos los cambios deben pasar por revisión y por los checks de Code Scanning.
+
+### Flujo de trabajo
+
+1. **Haz fork** del repositorio desde GitHub.
+2. **Clona tu fork** localmente:
+   ```bash
+   git clone git@github.com:<tu-usuario>/TD_Alerts.git
+   cd TD_Alerts
+   ```
+3. **Configura el remoto upstream** para mantener tu fork sincronizado:
+   ```bash
+   git remote add upstream git@github.com:AJRuiz2204/TD_Alerts.git
+   ```
+4. **Crea una rama descriptiva** desde `main` actualizada:
+   ```bash
+   git fetch upstream
+   git checkout -b feat/mi-cambio upstream/main
+   ```
+   Usa prefijos como `feat/`, `fix/`, `docs/`, `refactor/` o `chore/`.
+5. **Realiza tus cambios** y haz commits atómicos con mensajes claros (en español o inglés). Sigue el estilo del historial existente.
+6. **Verifica localmente** que `monitor.py` y `find_window.py` siguen funcionando antes de enviar el PR.
+7. **Push a tu fork**:
+   ```bash
+   git push origin feat/mi-cambio
+   ```
+8. **Abre un Pull Request** contra `main` del repositorio original. En la descripción incluye:
+   - Qué problema resuelve o qué funcionalidad añade.
+   - Cómo probaste el cambio (escenario reproducible).
+   - Capturas o logs si aplica.
+9. **Espera los checks**: el PR debe pasar Code Scanning y al menos una revisión aprobatoria antes de poder fusionarse.
+
+### Convenciones
+
+- **Estilo:** Mantén el código simple y dependiente solo de la API nativa de Windows (`win32gui`). Evita introducir dependencias pesadas (OCR, ML, etc.) salvo discusión previa en un issue.
+- **Compatibilidad:** El objetivo es Windows 10+ con Python 3.x. No rompas esa base.
+- **Issues primero:** Para cambios grandes (nuevas funciones, refactors mayores) abre un issue antes para discutir el enfoque y evitar trabajo desperdiciado.
+- **Una cosa por PR:** Mantén los PRs enfocados; es más fácil revisar y fusionar cambios pequeños.
+
+### Reportar bugs o pedir features
+
+Abre un issue en [GitHub Issues](https://github.com/AJRuiz2204/TD_Alerts/issues) describiendo:
+- Versión de Windows y de Python.
+- Pasos para reproducir (o título exacto de la ventana detectada con `find_window.py` si es un problema de detección).
+- Comportamiento esperado vs. comportamiento observado.
+
 ---
 **Nota:** Este proyecto es una utilidad independiente y no está afiliado oficialmente con Time Doctor.
